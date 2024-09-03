@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <title>Pokemon Search App</title>
+    <link rel="stylesheet" href="./poke.css">
+</head>
+<body>
+    
+    <div class="container">
+        <label for="search-input">Enter Pokémon Name or ID:</label>
+        <input type="text" id="search-input" placeholder="E.g., Pikachu or 25">
+        <button id="search-button">Search</button>
+
+        <div id="pokemon-details">
+            <h2 id="pokemon-name"></h2>
+            <p id="pokemon-id"></p>
+            <p id="weight"></p>
+            <p id="height"></p>
+            <p id="types"></p>
+            <p id="hp"></p>
+            <p id="attack"></p>
+            <p id="defense"></p>
+            <p id="special-attack"></p>
+            <p id="special-defense"></p>
+            <p id="speed"></p>
+            <img id="sprite"  alt="Pokemon Sprite">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('search-input');
+            const searchButton = document.getElementById('search-button');
+            const pokemonName = document.getElementById('pokemon-name');
+            const pokemonId = document.getElementById('pokemon-id');
+            const weight = document.getElementById('weight');
+            const height = document.getElementById('height');
+            const types = document.getElementById('types');
+            const hp = document.getElementById('hp');
+            const attack = document.getElementById('attack');
+            const defense = document.getElementById('defense');
+            const specialAttack = document.getElementById('special-attack');
+            const specialDefense = document.getElementById('special-defense');
+            const speed = document.getElementById('speed');
+            const sprite = document.getElementById('sprite');
+            const imageUrl = ['E:/FreeCodeCamp/Pokemon-Search-App/dfvvca3-553dc247-632d-4918-a0ba-8053d5f91d86.png', 'E:/FreeCodeCamp/Pokemon-Search-App/Gengar-PNG-File.png'];
+
+            searchButton.addEventListener('click', function () {
+                const userInput = searchInput.value.trim().toLowerCase();
+
+                if (userInput === 'pikachu') {
+                    displayPokemonDetails('Pikachu', 25, 'Weight: 60', 'Height: 4', ['ELECTRIC'], 35, 55, 40, 50, 50, 90);
+                    addPokemonSprite(imageUrl[0]);
+                } else if (userInput === '94') {
+                    displayPokemonDetails('Gengar', 94, 'Weight: 405', 'Height: 15', ['GHOST', 'POISON'], 60, 65, 60, 130, 75, 110);
+                    addPokemonSprite(imageUrl[1]);
+                } else {
+                    alert('Pokémon not found');
+                }
+            });
+
+            function displayPokemonDetails(name, id, weightText, heightText, typeArr, hpValue, attackValue, defenseValue, specialAttackValue, specialDefenseValue, speedValue) {
+                pokemonName.textContent = name.toUpperCase();
+                pokemonId.textContent = `#${id} or ${id}`;
+                weight.textContent = weightText;
+                height.textContent = heightText;
+                types.innerHTML = typeArr.map(type => type.toUpperCase()).join(', ');
+                hp.textContent = `HP: ${hpValue}`;
+                attack.textContent = `Attack: ${attackValue}`;
+                defense.textContent = `Defense: ${defenseValue}`;
+                specialAttack.textContent = `Special Attack: ${specialAttackValue}`;
+                specialDefense.textContent = `Special Defense: ${specialDefenseValue}`;
+                speed.textContent = `Speed: ${speedValue}`;
+            }
+
+            function addPokemonSprite(imageUrl) {
+                sprite.src = imageUrl;
+            }
+        });
+    </script>
+</body>
+</html>

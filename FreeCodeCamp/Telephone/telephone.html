@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #results-div {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <title>Telephone Number Validator</title>
+</head>
+<body>
+
+    <div class="container">
+        <label for="user-input">Enter Phone Number:</label>
+        <input type="text" id="user-input" placeholder="E.g., 1 555-555-5555">
+        <button id="check-btn">Check</button>
+        <button id="clear-btn">Clear</button>
+        <div id="results-div"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const userInput = document.getElementById('user-input');
+            const checkBtn = document.getElementById('check-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const resultsDiv = document.getElementById('results-div');
+
+            checkBtn.addEventListener('click', function () {
+                const phoneNumber = userInput.value.trim();
+                validatePhoneNumber(phoneNumber);
+            });
+
+            clearBtn.addEventListener('click', function () {
+                resultsDiv.textContent = '';
+            });
+
+            function validatePhoneNumber(phoneNumber) {
+                if (!phoneNumber) {
+                    alert('Please provide a phone number');
+                    return;
+                }
+
+                const regex = /^(1\s?)?(\(\d{3}\)|\d{3})([\s\-]?)\d{3}([\s\-]?)\d{4}$/;
+                const isValid = regex.test(phoneNumber);
+
+                if (isValid) {
+                    resultsDiv.textContent = `Valid US number: ${phoneNumber}`;
+                } else {
+                    resultsDiv.textContent = `Invalid US number: ${phoneNumber}`;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

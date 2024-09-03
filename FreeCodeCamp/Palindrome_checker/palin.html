@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Palindrom Checker</title>
+<style>
+body{
+    font-family: sans-serif;
+}
+#container{
+    margin-top:10%;
+    margin-left:auto;
+    
+
+}
+#b1{
+    width :4%;
+    height:4%;
+    justify-content: center;
+}
+#text{
+    border-width: 5px;
+    border-color: black;
+}
+h2{
+    text-align:center;
+}
+#l1{
+    margin-left: 37%;
+}
+#result{
+    
+    margin-left: 45%;
+}
+</style>
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const textInput = document.getElementById('text');
+    const checkBtn = document.getElementById('b1');
+    const resultDiv = document.getElementById('result');
+
+    checkBtn.addEventListener('click', function () {
+        const inputText = preprocessInput(text.value);
+        handlePalindromeCheck(inputText);
+    });
+
+    function preprocessInput(input) {
+        return input.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+    }
+
+    function checkPalindrome(str) {
+        const reversedStr = str.split('').reverse().join('');
+        return str === reversedStr;
+    }
+
+    function displayResult(text, isPalindrome) {
+        const resultMessage = isPalindrome ? `${text} is a palindrome` : `${text} is not a palindrome`;
+        resultDiv.textContent = resultMessage;
+    }
+
+    function handlePalindromeCheck(inputText) {
+        if (inputText === '') {
+            alert('Please input a value');
+        } else {
+            const isPalindrome = checkPalindrome(inputText);
+            displayResult(inputText, isPalindrome);
+        }
+    }
+});
+
+</script>
+</head>
+<body>
+    <div id="container">
+        <h2>Palindrom Checker</h2>
+    <label for="text" id="l1">Enter the Word:</label>
+    <input type="text" id="text" name="text"  />
+    <button id="b1"> Check</button>
+    <div id="result"></div>
+</body>
+</html>

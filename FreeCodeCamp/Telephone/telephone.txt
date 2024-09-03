@@ -1,0 +1,8 @@
+^: Asserts the start of the string.
+(1\s?)?: This part is an optional group (?). It matches the country code "1" followed by an optional whitespace character (\s). The ? indicates that the preceding group is optional.
+(\(\d{3}\)|\d{3}): This part matches the area code. It's a group that can either be in the format (\d{3}) with parentheses or just \d{3} without parentheses. The | is the alternation operator, meaning it matches either of the two options.
+([\s\-]?): This part matches an optional whitespace character (\s) or a hyphen (\-). The ? makes this part optional.
+\d{3}: Matches the next three digits, representing the exchange code.
+([\s\-]?): Another optional whitespace character or hyphen.
+\d{4}: Matches the final four digits of the phone number.
+$: Asserts the end of the string.

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Documentation</title>
+  <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+  <nav id="navbar">
+    <header>Amazon Web Services</header>
+    <a class="nav-link" href="#Introduction">INTRODUCTION</a>
+    <a class="nav-link" href="#Amazon-S3">Amazon-S3</a>
+    <a class="nav-link" href="#Amazon-RDS">Amazon-RDS</a>
+    <a class="nav-link" href="#Amazon-VPC">Amazon-VPC</a>
+    <a class="nav-link" href="#Amazon-IAM">Amazon-IAM</a>
+  </nav>
+
+  <main id="main-doc">
+    <section id="Introduction" class="main-section">
+      <header style="font-weight: bold; font-size: 30px;">Introduction</header>
+      <p>The size and quality of a major cloud provider like AWS means that its customers can often 
+        benefit from higher-quality security, availability, and reliability than they could provide 
+        locally.
+        </p>
+      <p>Cloud-optimized workloads are designed to take advantage of the scalability and 
+        elasticity of cloud platforms</p>
+      <code>Create AWS Account</code>
+      <ul>
+        <li>Amazon EC2</li>
+        <li>Amazon S3</li>
+        <li>Amazon VPC</li>
+        <li>Amazon Redshift</li>
+        <li>Amazon IAM</li>
+      </ul>
+    </section>
+
+    <section id="Amazon-S3" class="main-section">
+      <header style="font-weight: bold; font-size: 30px;">Amazon S3</header>
+      <p>Amazon Simple Storage Service (S3) lets you store and retrieve unlimited amounts of data 
+        from anywhere in the world at any time.</p>
+      <p>S3 stores objects in a container called a bucket that’s essentially a fl at fi le system. A 
+            bucket can store an unlimited number of objects.</p>
+      <code> URL of https://benpiper.s3.amazonaws.com/
+        text.txt. </code>
+      <ul>
+        <li>STANDARD</li>
+        <li>STANDARD IA</li>
+        <li>INTELLIGENT_TIERING</li>
+        <li>ONEZONE_IA</li>
+        <li>GLACIER</li>
+      </ul>
+    </section>
+
+   
+    
+    <section id="Amazon-VPC" class="main-section">
+        <header  style="font-weight: bold; font-size: 30px;">Amazon VPC</header>
+        <p>The Amazon Virtual Private Cloud (VPC) service provides the network backbone for many 
+            AWS services</p>
+            <p>The default VPC is configured to allow instances within the VPC to access the 
+                internet.</p>
+        <code>
+            !/bin/bash
+            yum install httpd -y 
+            systemctl start httpd
+        </code>
+        <ul>
+            <li>10.0.0.0/16 (10.0.0.0–10.0.255.255)</li>
+            <li>192.168.0.0/24 (192.168.0.0–192.168.0.255)</li>
+            <li>172.16.0.0/28 (172.16.0.0–172.16.0.15) </li>
+            <li> 172.31.0.0/16</li>
+            <li>172.31.0.0/16</li>
+          </ul>
+    </section>
+
+    <section id="Amazon-RDS" class="main-section">
+        <header  style="font-weight: bold; font-size: 30px;">Amazon RDS</header>
+        <p>A relational database 
+            is analogous to a spreadsheet that contains columns and rows. In a relational database, 
+            columns are called attributes , and rows are called records .</p>
+            <p>You can always install and configure your own database server on an EC2 instance. But 
+                RDS offers several advantages over this.</p>
+        <code>
+            yum install httpd -y 
+            systemctl start httpd
+        </code>
+        <ul>
+            <li>Amazon Redshift</li>
+            <li>Amazon Dynamo Db</li>
+            <li>Amazon RDS</li>
+            <li>Amazon Aurora</li>
+            <li>Scalar</li>
+          </ul>
+    </section>
+
+    <section id="Amazon-IAM" class="main-section">
+      <header  style="font-weight: bold; font-size: 30px;">Amazon IAM</header>
+      <p>Like users and groups, IAM roles define the limits for what can be done within your AWS 
+        account.</p>
+      <p>You can integrate third-party standards like the Security Assertion Markup Language 2.0
+            (SAML) or Microsoft’s Active Directory into your infrastructure</p>
+      <code>ssh -i keyname.pem ec2-user@<public_ip_address_of_instance>
+    </code>
+      <ul>
+        <li>IAM Roles</li>
+        <li>IAM Groups</li>
+        <li>IAM Users</li>
+        <li>MutiFactor Authentication</li>
+        <li>Password Rotation</li>
+      </ul>
+    </section>
+  </main>
+
+  
+</body>
+</html>
